@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C Tutorial - Part 6</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <div>
+    <div>
+      <header class=" text-white  flex justify-between p-5 bg-[#4caf50] h-16">
+        <div class="font-extrabold md:text-base lg:text-xl">Gowthamraj Network</div>
+        <ul class="flex gap-4">
+          <li class="hidden md:block">Introduction</li>
+          <li class="hidden md:block">Variables&conditionals</li>
+          <li class="hidden  md:block">Operators&Loop</li>
+          <li class="hidden  md:block">Functions</li>
+          <li class="border-b border-b-white hidden  md:block">Arrays</li>
+          <li class="border-b border-b-white hidden  md:block">Project</li>
+          <li class="md:hidden"><i class="fa-solid fa-bars" onclick="toggleNav()"></i></li>
+        </ul>
+      </header>
+    </div>
+  <div class="flex flex-col min-h-screen h-[100vh] overflow-y-auto  md:flex-row">
+    <!-- Sidebar -->
+    <aside class=" hidden text-center  text-black-400 p-6 space-y-4 md:w-64" id="topnav">
+      <h2 class="text-2xl font-bold mb-4 text-[#4caf50]">C Tutorial</h2>
+      <nav class="space-y-2 text-sm">
+        <a href="#structs" class="block hover:underline">Structures (cont.)</a>
+        <a href="#fileio" class="block hover:underline">Chapter 10: File I/O</a>
+        <a href="#file-readwrite" class="block hover:underline">Reading / Writing</a>
+        <a href="#practice10" class="block hover:underline">Practice - File I/O</a>
+        <a href="#project2" class="block hover:underline">Project 2: Snake, Water, Gun</a>
+        <a href="#dma" class="block hover:underline">Chapter 11: DMA</a>
+        <a href="#malloc" class="block hover:underline">malloc, calloc, realloc</a>
+        <a href="#practice11" class="block hover:underline">Practice - DMA</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+      <section id="structs">
+        <h2 class="text-xl font-bold mb-2 text-[#4caf50]">Chapter 9: Structures (continued)</h2>
+        <ul class="list-disc list-inside mb-4">
+          <li>Use structures for organizing complex data like employees, bank accounts, etc.</li>
+          <li>Create array of structures:</li>
+        </ul>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>struct employee facebook[100];
+facebook[0].code = 100;</code></pre>
+
+        <h3 class="font-semibold mt-4">Pointer to Structure</h3>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>struct employee *ptr;
+ptr = &e1;
+printf("%d", ptr->code);</code></pre>
+
+        <h3 class="font-semibold mt-4">Typedef</h3>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>typedef struct complex {
+  float real;
+  float imag;
+} Complex;
+
+Complex c1, c2;</code></pre>
+      </section>
+
+      <section id="fileio">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 10: File I/O</h2>
+        <p>To persist data between program executions, use files.</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>FILE *ptr;
+ptr = fopen("data.txt", "r");</code></pre>
+        <p><code>FILE</code> is a structure, pointer is used to communicate with files.</p>
+
+        <h3 class="font-semibold mt-4">Modes</h3>
+        <ul class="list-disc list-inside">
+          <li><code>"r"</code> – read</li>
+          <li><code>"w"</code> – write (overwrite)</li>
+          <li><code>"a"</code> – append</li>
+          <li><code>"rb"</code> / <code>"wb"</code> – binary</li>
+        </ul>
+      </section>
+
+
+
+      <section id="file-readwrite">
+  <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Reading & Writing Files</h2>
+  <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words">
+    <code class="block max-w-full">fscanf(ptr, "%d", &num);    // Read int from file
+fprintf(ptr, "%d", num);    // Write int to file
+
+char ch;
+while ((ch = fgetc(ptr)) != EOF) {
+  putchar(ch);
+}
+
+fputc('A', ptr);</code>
+  </pre>
+  <p>Always close files:</p>
+  <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words">
+    <code class="block max-w-full">fclose(ptr);</code>
+  </pre>
+</section>
+
+
+      <section id="practice10">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Practice - File I/O</h2>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>Read 3 integers from a file</li>
+          <li>Generate multiplication table and save to file</li>
+          <li>Read text file character by character and duplicate its content in new file</li>
+          <li>Take name & salary of 2 employees and write to file</li>
+          <li>Read an integer from file and double its value</li>
+        </ol>
+      </section>
+
+      <section id="project2">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Project 2: Snake, Water, Gun</h2>
+        <p>Classic terminal-based game like Rock, Paper, Scissors.</p>
+        <ul class="list-disc list-inside">
+          <li>Player selects one option</li>
+          <li>Computer randomly selects one</li>
+          <li>Prints result: win, lose, or draw</li>
+        </ul>
+        <p>Try implementing this game logic using `if-else` or `switch`.</p>
+      </section>
+
+      <section id="dma">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 11: Dynamic Memory Allocation</h2>
+        <p>Memory allocated during runtime using:</p>
+        <ul class="list-disc list-inside">
+          <li><code>malloc()</code></li>
+          <li><code>calloc()</code></li>
+          <li><code>free()</code></li>
+          <li><code>realloc()</code></li>
+        </ul>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int *ptr = (int *) malloc(5 * sizeof(int));
+free(ptr);</code></pre>
+      </section>
+
+      <section id="fileio">
+  <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 10: File I/O</h2>
+  <p>To persist data between program executions, use files.</p>
+  <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words">
+    <code class="block max-w-full">FILE *ptr;
+ptr = fopen("data.txt", "r");</code>
+  </pre>
+  <p><code>FILE</code> is a structure, pointer is used to communicate with files.</p>
+
+  <h3 class="font-semibold mt-4">Modes</h3>
+  <ul class="list-disc list-inside">
+    <li><code>"r"</code> – read</li>
+    <li><code>"w"</code> – write (overwrite)</li>
+    <li><code>"a"</code> – append</li>
+    <li><code>"rb"</code> / <code>"wb"</code> – binary</li>
+  </ul>
+</section>
+
+<section id="file-readwrite">
+  <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Reading & Writing Files</h2>
+  <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words">
+    <code class="block max-w-full">fscanf(ptr, "%d", &num);    // Read int from file
+fprintf(ptr, "%d", num);    // Write int to file
+
+char ch;
+while ((ch = fgetc(ptr)) != EOF) {
+  putchar(ch);
+}
+
+fputc('A', ptr);</code>
+  </pre>
+  <p>Always close files:</p>
+  <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words">
+    <code class="block max-w-full">fclose(ptr);</code>
+  </pre>
+</section>
+
+<section id="dma">
+  <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 11: Dynamic Memory Allocation</h2>
+  <p>Memory allocated during runtime using:</p>
+  <ul class="list-disc list-inside">
+    <li><code>malloc()</code></li>
+    <li><code>calloc()</code></li>
+    <li><code>free()</code></li>
+    <li><code>realloc()</code></li>
+  </ul>
+   <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words">
+    <code class="block max-w-full">int *ptr = (int *) malloc(5 * sizeof(int)); 
+if (ptr == NULL) { 
+  printf("Memory allocation failed\n"); 
+} else {
+  printf("Memory allocated successfully\n");
+}</code>
+  </pre>
+</section>
+
+<section id="malloc">
+  <h3 class="font-semibold mt-6 mb-2 text-[#4caf50]">calloc() and realloc()</h3>
+  <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words">
+    <code class="block max-w-full">float *arr = (float *) calloc(5, sizeof(float));
+arr = realloc(arr, 10 * sizeof(float));</code>
+  </pre>
+  <p><code>calloc</code> initializes to 0, <code>malloc</code> doesn't. <code>free()</code> deallocates.</p>
+</section>
+
+
+      <section id="practice11">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Practice - DMA</h2>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>Create dynamic array of 6 integers using malloc()</li>
+          <li>Take user input to fill array</li>
+          <li>Repeat using calloc()</li>
+          <li>Resize array to 10 using realloc()</li>
+          <li>Store 15 values (multiples of 7) using DMA</li>
+        </ol>
+      </section>
+       <!-- nav-buttons -->
+       <div class="w-full flex justify-end">
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="page5.html">Previous&Larr;</a></button>
+       </div>
+
+       <!-- footer -->
+  <div  class="h-16 border-4 bg-neutral-900 text-white text-center py-4 mt-5">
+    <footer >
+      C Tutorial @2025|Gowthamraj Network
+    </footer>
+    </main>
+  </div>
+  </div>
+   <script>
+  function toggleNav()
+  {
+    document.getElementById("topnav").classList.toggle('hidden');
+  }
+  </script>
+</body>
+</html>

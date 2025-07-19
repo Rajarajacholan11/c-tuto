@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C Tutorial - Part 5</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <div>
+    <div>
+      <header class=" text-white  flex justify-between p-5 bg-[#4caf50] h-16">
+        <div class="font-extrabold md:text-base lg:text-xl">Gowthamraj Network</div>
+        <ul class="flex gap-4">
+          <li class="hidden md:block">Introduction</li>
+          <li class="hidden md:block">Variables&conditionals</li>
+          <li class="hidden  md:block">Operators&Loop</li>
+          <li class="hidden  md:block">Functions</li>
+          <li class="border-b border-b-white hidden  md:block">Arrays</li>
+          <li class="hidden  md:block">Project</li>
+          <li class="md:hidden"><i class="fa-solid fa-bars" onclick="toggleNav()"></i></li>
+        </ul>
+      </header>
+    </div>
+  <div class="flex flex-col min-h-screen h-[100vh] overflow-y-auto  md:flex-row">
+    <!-- Sidebar -->
+    <aside class="hidden w-full text-center  text-black-400 p-6 space-y-4 md:w-64" id="topnav">
+      <h2 class="text-2xl font-bold mb-4 text-[#4caf50]">C Tutorial</h2>
+      <nav class="space-y-2 text-sm">
+        <a href="#arrays" class="block hover:underline">Chapter 7: Arrays</a>
+        <a href="#pointer-arithmetic" class="block hover:underline">Pointer Arithmetic</a>
+        <a href="#arrays-pointers" class="block hover:underline">Arrays with Pointers</a>
+        <a href="#multidimensional" class="block hover:underline">Multidimensional Arrays</a>
+        <a href="#practice7" class="block hover:underline">Practice - Arrays</a>
+        <a href="#strings" class="block hover:underline">Chapter 8: Strings</a>
+        <a href="#string-io" class="block hover:underline">String Input/Output</a>
+        <a href="#string-funcs" class="block hover:underline">String Functions</a>
+        <a href="#practice8" class="block hover:underline">Practice - Strings</a>
+        <a href="#structures" class="block hover:underline">Chapter 9: Structures</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+      <section id="arrays">
+        <h2 class="text-xl font-bold mb-2 text-[#4caf50]">Chapter 7: Arrays</h2>
+        <p>An array is a collection of similar elements stored in contiguous memory.</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int marks[90];
+char name[20];
+float percentile[90];</code></pre>
+        <p>Access using:</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>marks[0] = 33;
+scanf("%d", &marks[0]);
+printf("%d", marks[0]);</code></pre>
+      </section>
+
+      <section id="pointer-arithmetic">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Pointer Arithmetic</h2>
+        <p>Pointer increment depends on data type size:</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int *a = &x; // 4 bytes
+a++; // points to next int location
+
+char *b = &y; // 1 byte
+b++;
+
+// Operations: +, -, ptr1 - ptr2, comparison</code></pre>
+      </section>
+
+      <section id="arrays-pointers">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Arrays with Pointers</h2>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int arr[5] = {9, 8, 7, 6, 5};
+int *ptr = arr; // or &arr[0]
+printf("%d", *ptr);    // 9
+ptr++;</code></pre>
+        <p>Arrays can be passed to functions:</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>void printArray(int arr[], int size);</code></pre>
+      </section>
+
+      <section id="multidimensional">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Multidimensional Arrays</h2>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int arr[3][2] = {
+  {1, 4},
+  {7, 9},
+  {11, 22}
+};
+
+printf("%d", arr[0][1]); // 4</code></pre>
+        <p>Stored in contiguous memory blocks.</p>
+      </section>
+
+      <section id="practice7">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 7 - Practice Set</h2>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>Create array of 10 integers and test pointer arithmetic.</li>
+          <li>Check whether <code>*(ptr+3)</code> accesses 4th element.</li>
+          <li>Create multiplication table of 5 using array.</li>
+          <li>Repeat above with user input.</li>
+          <li>Reverse array using function.</li>
+          <li>Count positive numbers in array.</li>
+          <li>Multiplication tables for 2, 7, 9 in 3×10 array.</li>
+          <li>Use 3D array and print addresses.</li>
+        </ol>
+      </section>
+
+      <section id="strings">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 8: Strings</h2>
+        <p>A string is a character array ending with a null character <code>'\0'</code>.</p>
+       <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words">
+  <code class="block max-w-full">char s[] = {'H', 'A', 'R', 'R', 'Y', '\0'};
+char s1[] = "HARRY";</code>
+</pre>
+
+      </section>
+
+      <section id="string-io">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">String Input & Output</h2>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>char st[50];
+scanf("%s", st); // one word only
+
+gets(st);  // multi-word input
+puts(st);  // output</code></pre>
+        <p>Strings using pointer:</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>char *ptr = "Harry";</code></pre>
+      </section>
+
+      <section id="string-funcs">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">String Library Functions</h2>
+        <ul class="list-disc list-inside">
+          <li><code>strlen(s)</code> – returns string length</li>
+          <li><code>strcpy(dest, src)</code> – copy</li>
+          <li><code>strcat(s1, s2)</code> – concatenate</li>
+          <li><code>strcmp(s1, s2)</code> – compare</li>
+        </ul>
+        <p><code>#include &lt;string.h&gt;</code> is required.</p>
+      </section>
+
+      <section id="practice8">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 8 - Practice Set</h2>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>Function to read multi-word string using <code>gets()</code></li>
+          <li>Take 2 strings from user and confirm if equal</li>
+          <li>Write your own version of <code>strlen</code></li>
+          <li>Create a function <code>slice()</code> to cut string from m to n</li>
+          <li>Write own <code>strcpy</code></li>
+          <li>Encrypt string by adding value to characters</li>
+          <li>Decrypt the above</li>
+          <li>Count occurrences of a character</li>
+          <li>Check if character exists in a string</li>
+        </ol>
+      </section>
+
+      <section id="structures">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 9: Structures</h2>
+        <p>A structure is a user-defined type that can hold variables of different data types.</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>struct employee {
+  int code;
+  float salary;
+  char name[10];
+};
+
+struct employee e1;
+e1.code = 100;
+e1.salary = 71.22;
+strcpy(e1.name, "Harry");</code></pre>
+        <p><strong>Quick Quiz:</strong> Write a program to store the details of 3 employees.</p>
+      </section>
+       <!-- nav-buttons -->
+       <div class="w-full flex justify-between mt-3">
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="/functions/index.html">&larr;Previous</a></button>
+
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="/project/index.html">Next&Rarr;</a></button>
+       </div>
+    <!-- footer -->
+   <div  class="h-16 border-4 bg-neutral-900 text-white text-center py-4 mt-5">
+    <footer >
+      C Tutorial @2025|Gowthamraj Network
+    </footer>
+    </main>
+  </div>
+  </div>
+   <script>
+  function toggleNav()
+  {
+    document.getElementById("topnav").classList.toggle('hidden');
+  }
+  </script>
+</body>
+</html>

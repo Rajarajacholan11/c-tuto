@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C Tutorial - Part 3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <div>
+    <div>
+      <header class=" text-white  flex justify-between p-5 bg-[#4caf50] h-16">
+        <div class="font-extrabold md:text-base lg:text-xl">Gowthamraj Network</div>
+        <ul class="flex gap-4">
+          <li class="hidden md:block">Introduction</li>
+          <li class="hidden md:block">Variables&conditionals</li>
+          <li class="border-b border-b-white hidden  md:block">Operators&Loop</li>
+          <li class="hidden  md:block">Functions</li>
+          <li class="hidden  md:block">Arrays</li>
+          <li class="hidden  md:block">Project</li>
+          <li class="md:hidden"><i class="fa-solid fa-bars" onclick="toggleNav()"></i></li>
+        </ul>
+      </header>
+    </div>
+  <div class="flex flex-col min-h-screen h-[100vh] overflow-y-auto  md:flex-row">
+    <!-- Sidebar -->
+    <aside class="hidden w-full text-center  text-black-400 p-6 space-y-4 md:w-64" id="topnav">
+      <h2 class="text-2xl font-bold mb-4 text-[#4caf50]">C Tutorial</h2>
+      <nav class="space-y-2 text-sm">
+        <a href="#logical" class="block hover:underline">Logical Operators</a>
+        <a href="#elseif" class="block hover:underline">Else If & Ternary</a>
+        <a href="#switch" class="block hover:underline">Switch Case</a>
+        <a href="#practice3" class="block hover:underline">Chapter 3 - Practice Set</a>
+        <a href="#loops" class="block hover:underline">Chapter 4: Loops</a>
+        <a href="#while" class="block hover:underline">While Loop</a>
+        <a href="#dowhile" class="block hover:underline">Do While</a>
+        <a href="#forloop" class="block hover:underline">For Loop</a>
+        <a href="#break" class="block hover:underline">Break/Continue</a>
+        <a href="#practice4" class="block hover:underline">Chapter 4 - Practice Set</a>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+      <section id="logical">
+        <h2 class="text-xl font-bold mb-2 text-[#4caf50]">Usage of Logical Operators</h2>
+        <ul class="list-disc list-inside mb-4">
+          <li><code>&&</code> (AND) is true only when both conditions are true.</li>
+          <li><code>||</code> (OR) is true when at least one condition is true.</li>
+          <li><code>!</code> (NOT) reverses the truth value.</li>
+        </ul>
+        <p>Example: <code>!(3 == 3)</code> → false, <code>!(3 != 3)</code> → true</p>
+      </section>
+
+      <section id="elseif">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Else If & Ternary Operator</h2>
+        <p><strong>Else-if Ladder:</strong> Useful for checking multiple conditions.</p>
+        <p><strong>Ternary Operator:</strong> Short-hand if-else:</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto break-words whitespace-pre-wrap">
+        <code>condition ? expression_if_true : expression_if_false;</code>
+        </pre>
+
+      </section>
+
+      <section id="switch">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Switch Case Statement</h2>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>switch (expression) {
+  case 1:
+    // code
+    break;
+  case 2:
+    // code
+    break;
+  default:
+    // code
+}</code></pre>
+        <ul class="list-disc list-inside mt-2 text-[#4caf50]">
+          <li>Can use <code>int</code> or <code>char</code> values</li>
+          <li>Cases can be in any order</li>
+          <li>Can nest switch statements (though rarely used)</li>
+        </ul>
+      </section>
+
+      <section id="practice3">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 3 - Practice Set</h2>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>What will be the output of:
+            <pre class="bg-gray-100 p-4 rounded text-sm"><code>int a = 10;
+if (a = 11)
+  printf("I am 11");
+else
+  printf("I am not 11");</code></pre>
+          </li>
+          <li>Program: Check if a student passed based on 40% total and 33% in each subject.</li>
+          <li>Calculate income tax:
+            <ul class="list-disc list-inside ml-4">
+              <li>0 – 2.5L: No Tax</li>
+              <li>2.51 – 5L: 5%</li>
+              <li>5.01 – 10L: 20%</li>
+              <li>Above 10L: 30%</li>
+            </ul>
+          </li>
+          <li>Program: Check if a year is a leap year.</li>
+          <li>Check if a character is lowercase.</li>
+          <li>Find greatest of 4 numbers.</li>
+        </ol>
+      </section>
+
+      <section id="loops">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 4: Loop Control Instructions</h2>
+        <p>Loops are used to execute a block of code repeatedly.</p>
+        <ul class="list-disc list-inside">
+          <li><code>while</code> loop</li>
+          <li><code>do-while</code> loop</li>
+          <li><code>for</code> loop</li>
+        </ul>
+      </section>
+
+      <section id="while">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">While Loop</h2>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int i = 0;
+while (i < 10) {
+  printf("i = %d\n", i);
+  i++;
+}</code></pre>
+        <p>Note: Infinite loop if the condition never becomes false.</p>
+      </section>
+
+      <section id="dowhile">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Do-While Loop</h2>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int i = 0;
+do {
+  printf("%d\n", i);
+  i++;
+} while (i < 5);</code></pre>
+        <p>Executes the block at least once.</p>
+      </section>
+
+      <section id="forloop">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">For Loop</h2>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>for (int i = 0; i < 3; i++) {
+  printf("%d\n", i);
+}</code></pre>
+        <p>Can increment or decrement:</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>for (int i = 5; i > 0; i--) {
+  printf("%d\n", i);
+}</code></pre>
+      </section>
+
+      <section id="break">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Break and Continue</h2>
+        <h3 class="font-semibold mt-2">Break:</h3>
+        <p>Exits the loop immediately.</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>for (int i = 0; i < 100; i++) {
+  if (i == 5) break;
+  printf("%d\n", i);
+}</code></pre>
+
+        <h3 class="font-semibold mt-4">Continue:</h3>
+        <p>Skips current iteration.</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int skip = 5;
+for (int i = 0; i < 10; i++) {
+  if (i == skip) continue;
+  printf("%d\n", i);
+}</code></pre>
+      </section>
+
+      <section id="practice4">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 4 - Practice Set</h2>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>Print multiplication table of a number</li>
+          <li>Use <code>do-while</code> to print first n natural numbers</li>
+          <li>Which loops run at least once?</li>
+          <li>True or False: Everything can be done using any loop type</li>
+          <li>Sum first 10 natural numbers using <code>while</code></li>
+          <li>Implement multiplication table of 8</li>
+          <li>Find factorial using a <code>for</code> loop</li>
+          <li>Repeat multiplication table using <code>while</code></li>
+          <li>Check if a number is prime using loops</li>
+        </ol>
+      </section>
+      <!-- nav-buttons -->
+       <div class="w-full flex justify-between mt-3">
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="/variables&conditionals/">&larr;Previous</a></button>
+
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="/functions/index.html">Next&Rarr;</a></button>
+       </div>
+    <!-- footer -->
+   <div  class="h-16 border-4 bg-neutral-900 text-white text-center py-4 mt-5">
+    <footer >
+      C Tutorial @2025|Gowthamraj Network
+    </footer>
+    </main>
+  </div>
+  </div>
+  <script>
+  function toggleNav()
+  {
+    document.getElementById("topnav").classList.toggle('hidden');
+  }
+</script>
+</body>
+</html>

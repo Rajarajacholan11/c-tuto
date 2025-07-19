@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C Tutorial - Part 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <div>
+        <div>
+      <header class=" text-white  flex justify-between p-5 bg-[#4caf50] h-16">
+        <div class="font-extrabold md:text-base lg:text-xl">Gowthamraj Network</div>
+        <ul class="flex gap-4">
+          <li class=" hidden md:block">Introduction</li>
+          <li class=" border-b border-b-white hidden md:block">Variables&conditionals</li>
+          <li class="hidden  md:block">Operators&Loop</li>
+          <li class="hidden  md:block">Functions</li>
+          <li class="hidden  md:block">Arrays</li>
+          <li class="hidden  md:block">Project</li>
+          <li class="md:hidden"><i class="fa-solid fa-bars" onclick="toggleNav()"></i></li>
+        </ul>
+      </header>
+    </div>
+  <div class="flex flex-col min-h-screen h-[100vh] overflow-y-auto  md:flex-row">
+    <!-- Sidebar -->
+    <aside class="hidden w-full text-center  text-black-400 p-6 space-y-4 md:w-64" id="topnav">
+      <h2 class="text-2xl font-bold mb-4 text-[#4caf50]">C Tutorial</h2>
+      <nav class="space-y-2 text-sm">
+        <a href="#types-variables" class="block hover:underline">Types of Variables</a>
+        <a href="#user-input" class="block hover:underline">Receiving Input</a>
+        <a href="#practice1" class="block hover:underline">Chapter 1 - Practice Set</a>
+        <a href="#instr" class="block hover:underline">Chapter 2: Instructions</a>
+        <a href="#arith-ops" class="block hover:underline">Arithmetic Operators</a>
+        <a href="#type-conv" class="block hover:underline">Type Conversion</a>
+        <a href="#precedence" class="block hover:underline">Operator Precedence</a>
+        <a href="#control" class="block hover:underline">Control Instructions</a>
+        <a href="#practice2" class="block hover:underline">Chapter 2 - Practice Set</a>
+        <a href="#conditional" class="block hover:underline">Chapter 3: Conditionals</a>
+        <a href="#ifelse" class="block hover:underline">If-Else & Relational</a>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+      <section id="types-variables">
+        <h2 class="text-xl font-bold mb-2 text-[#4caf50]">Types of Variables</h2>
+        <ul class="list-disc list-inside mb-4 ">
+          <li><code>int a = 3;</code> – Integer variable</li>
+          <li><code>float a = 7.7;</code> – Real variable</li>
+          <li><code>char a = 'B';</code> – Character variable</li>
+        </ul>
+      </section>
+
+      <section id="user-input">
+        <h2 class="text-xl font-bold mb-2 text-[#4caf50]">Receiving Input from the User</h2>
+        <p>To receive input in C, we use the <code>scanf</code> function.</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm mt-2"><code>int i;
+scanf("%d", &i);</code></pre>
+        <p class="mt-2">The <code>&</code> is the “address of” operator. It tells the compiler to store the user input at the address of the variable.</p>
+      </section>
+
+      <section id="practice1">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 1 - Practice Set</h2>
+        <ul class="list-decimal list-inside space-y-1">
+          <li>Write a C program to calculate the area of a rectangle:
+            <ul class="list-disc list-inside ml-4">
+              <li>Using hardcoded inputs</li>
+              <li>Using user inputs</li>
+            </ul>
+          </li>
+          <li>Calculate the area of a circle and then the volume of a cylinder.</li>
+          <li>Convert Celsius to Fahrenheit.</li>
+          <li>Calculate Simple Interest: P × R × T / 100</li>
+        </ul>
+      </section>
+
+      <section id="instr">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 2: Instructions & Operators</h2>
+        <p>A C program contains instructions. Types:</p>
+        <ul class="list-disc list-inside">
+          <li>Type Declaration Instruction: <code>int a;</code>, <code>float b;</code></li>
+          <li>Arithmetic Instruction</li>
+          <li>Control Instruction</li>
+        </ul>
+        <p class="mt-2">You can also assign multiple variables at once:</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int a, b, c, d;
+a = b = c = d = 30;</code></pre>
+      </section>
+
+      <section id="arith-ops">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Arithmetic Operators</h2>
+        <ul class="list-disc list-inside">
+          <li><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulo for remainder)</li>
+        </ul>
+        <p class="mt-2">Note: <code>%</code> cannot be used with float.</p>
+        <p class="mt-2">For exponents, C does not have an operator. Use <code>pow(x, y)</code> from <code>&lt;math.h&gt;</code>.</p>
+      </section>
+
+      <section id="type-conv">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Type Conversion</h2>
+        <p>Rules:</p>
+        <ul class="list-disc list-inside">
+          <li>int + int → int</li>
+          <li>int + float → float</li>
+          <li>float + float → float</li>
+        </ul>
+        <p class="mt-2 text-sm">Example: <code>int k = 3.0 / 9;</code> → 0, because float gets demoted.</p>
+      </section>
+
+      <section id="precedence">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Operator Precedence</h2>
+        <p>C uses operator precedence and associativity rules instead of BODMAS.</p>
+        <ul class="list-disc list-inside">
+          <li><code>*</code>, <code>/</code>, <code>%</code> have higher precedence than <code>+</code>, <code>-</code></li>
+          <li>Associativity for most operators is left to right</li>
+        </ul>
+      </section>
+
+      <section id="control">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Control Instructions</h2>
+        <ul class="list-decimal list-inside">
+          <li>Sequence Control Instruction</li>
+          <li>Decision Control Instruction</li>
+          <li>Loop Control Instruction</li>
+          <li>Case Control Instruction</li>
+        </ul>
+      </section>
+
+      <section id="practice2">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 2 - Practice Set</h2>
+        <ul class="list-decimal list-inside">
+          <li>Which of the following is invalid in C?
+            <ul class="list-disc list-inside ml-4">
+              <li><code>int V = 3 ^ 3</code></li>
+              <li><code>char dt = '21 Dec 2020';</code></li>
+            </ul>
+          </li>
+          <li>What data type will <code>3.0/8 - 2</code> return?</li>
+          <li>Program to check if a number is divisible by 97.</li>
+          <li>Evaluate: <code>3 + 2/y - z + r</code> where x = 2, y = 3, z = 3, r = 1</li>
+          <li><code>3.0 + 1</code> is of type:
+            <ul class="list-disc list-inside ml-4">
+              <li>Integer</li>
+              <li>Floating point</li>
+              <li>Character</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="conditional">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 3: Conditional Instructions</h2>
+        <p>Conditional logic allows executing instructions based on whether a condition is met.</p>
+        <p class="mt-2">Types:</p>
+        <ul class="list-disc list-inside">
+          <li>If-Else Statement</li>
+          <li>Switch Statement</li>
+        </ul>
+      </section>
+
+      <section id="ifelse">
+        <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">If-Else & Relational Operators</h2>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>int a = 23;
+if (a > 18) {
+    printf("You can drive\n");
+}</code></pre>
+        <p class="mt-2">Relational operators:</p>
+        <ul class="list-disc list-inside">
+          <li><code>==</code> equal to</li>
+          <li><code>!=</code> not equal to</li>
+          <li><code>&gt;=</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&lt;</code></li>
+        </ul>
+        <p class="mt-2">Logical operators:</p>
+        <ul class="list-disc list-inside">
+          <li><code>&&</code> AND</li>
+          <li><code>||</code> OR</li>
+          <li><code>!</code> NOT</li>
+        </ul>
+      </section>
+       <!-- nav-buttons -->
+       <div class="w-full flex justify-between mt-3">
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="/index.html">&larr;Previous</a></button>
+
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="/operators&loops/index.html">Next&Rarr;</a></button>
+       </div>
+
+       <!-- footer -->
+  <div  class="h-16 border-4 bg-neutral-900 text-white text-center py-4 mt-5">
+    <footer >
+      C Tutorial @2025|Gowthamraj Network
+    </footer>
+    </main>
+  </div>
+    </div>
+<script>
+  function toggleNav()
+  {
+    document.getElementById("topnav").classList.toggle('hidden');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C Tutorial - Part 4</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <div>
+    <div>
+      <header class=" text-white  flex justify-between p-5 bg-[#4caf50] h-16">
+        <div class="font-extrabold md:text-base md:text-xl">Gowthamraj Network</div>
+        <ul class="flex gap-4">
+          <li class="hidden md:block">Introduction</li>
+          <li class="hidden md:block">Variables&conditionals</li>
+          <li class="hidden  md:block">Operators&Loop</li>
+          <li class="border-b border-b-white hidden  md:block">Functions</li>
+          <li class="hidden  md:block">Arrays</li>
+          <li class="hidden  md:block">Project</li>
+          <li class="md:hidden"><i class="fa-solid fa-bars" onclick="toggleNav()"></i></li>
+        </ul>
+      </header>
+    </div>
+    <div class="flex flex-col min-h-screen h-[100vh] overflow-y-auto  md:flex-row">
+      <!-- Sidebar -->
+      <aside class="hidden w-full text-center  text-black-400 p-6 space-y-4 md:w-64" id="topnav">
+        <h2 class="text-2xl font-bold mb-4 text-[#4caf50]">C Tutorial</h2>
+        <nav class="space-y-2 text-sm">
+          <a href="#project" class="block hover:underline">Project 1</a>
+          <a href="#functions" class="block hover:underline">Functions</a>
+          <a href="#passing-values" class="block hover:underline">Passing Values</a>
+          <a href="#recursion" class="block hover:underline">Recursion</a>
+          <a href="#practice5" class="block hover:underline">Chapter 5 - Practice</a>
+          <a href="#pointers" class="block hover:underline">Pointers</a>
+          <a href="#pointer-types" class="block hover:underline">Pointer Types</a>
+          <a href="#ref-vs-val" class="block hover:underline">Call by Reference</a>
+          <a href="#practice6" class="block hover:underline">Chapter 6 - Practice</a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-8 overflow-y-auto">
+        <section id="project">
+          <h2 class="text-xl font-bold mb-2 text-[#4caf50]">Project 1: Number Guessing Game</h2>
+          <p>Create a program that:</p>
+          <ul class="list-disc list-inside">
+            <li>Generates a random number</li>
+            <li>Asks the user to guess</li>
+            <li>Prints "Higher" or "Lower" hints</li>
+            <li>Counts the number of attempts</li>
+          </ul>
+          <p class="mt-2 text-sm text-gray-600">Hint: Use loops and <code>rand()</code> function</p>
+        </section>
+
+        <section id="functions">
+          <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 5: Functions</h2>
+          <p>Functions allow code reuse and logical separation.</p>
+          <pre class="bg-gray-100 p-4 rounded text-sm"><code>void display();
+
+  int main() {
+    display(); // function call
+    return 0;
+  }
+
+  void display() {
+    printf("Hi I am display");
+  }</code></pre>
+        </section>
+
+        <section id="passing-values">
+          <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Passing Values to Functions</h2>
+          <pre class="bg-gray-100 p-4 rounded text-sm"><code>int sum(int a, int b) {
+    return a + b;
+  }
+
+  int main() {
+    int result = sum(2, 3); // result = 5
+  }</code></pre>
+          <p class="mt-2">Note: Parameters are variables in definition; arguments are values passed during the call.</p>
+        </section>
+
+        <section id="recursion">
+          <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Recursion</h2>
+          <p>A function that calls itself is recursive.</p>
+          <pre class="bg-gray-100 p-4 rounded text-sm"><code>int factorial(int n) {
+    if (n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+  }</code></pre>
+          <p class="mt-2">Base condition avoids infinite recursion.</p>
+        </section>
+
+        <section id="practice5">
+          <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 5 - Practice Set</h2>
+          <ol class="list-decimal list-inside space-y-1">
+            <li>Write functions for: Good Morning, Good Afternoon, Good Night</li>
+            <li>Function to calculate average of 3 numbers</li>
+            <li>Convert Celsius to Fahrenheit</li>
+            <li>Force = mass × 9.8</li>
+            <li>Recursive function for Fibonacci</li>
+            <li>Recursive sum of first n natural numbers</li>
+            <li>Print star pattern using functions</li>
+          </ol>
+        </section>
+
+        <section id="pointers">
+          <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 6: Pointers</h2>
+          <p>A pointer stores the memory address of another variable.</p>
+         <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap break-words">
+  <code class="max-w-full block">int a = 8;
+int *p = &a;
+
+printf("Address: %u\n", p);     // address of a
+printf("Value: %d\n", *p);     // value at that address (8)</code>
+</pre>
+
+        </section>
+
+        <section id="pointer-types">
+          <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Pointer to Pointer</h2>
+          <pre class="bg-gray-100 p-4 rounded text-sm"><code>int a = 5;
+  int *p = &a;
+  int **q = &p;
+
+  printf("%d\n", **q); // prints 5</code></pre>
+          <p class="mt-2">Used in advanced memory manipulation and nested structures.</p>
+        </section>
+
+        <section id="ref-vs-val">
+          <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Call by Value vs Reference</h2>
+          <h3 class="font-semibold mt-4">Call by Value</h3>
+          <p>Original value not affected.</p>
+          <pre class="bg-gray-100 p-4 rounded text-sm"><code>void change(int x) {
+    x = 77;
+  }</code></pre>
+
+          <h3 class="font-semibold mt-4">Call by Reference</h3>
+          <pre class="bg-gray-100 p-4 rounded text-sm"><code>void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+  }</code></pre>
+          <p class="mt-2">Calling with <code>swap(&a, &b)</code> swaps values in-place.</p>
+        </section>
+
+        <section id="practice6">
+          <h2 class="text-xl font-bold mt-6 mb-2 text-[#4caf50]">Chapter 6 - Practice Set</h2>
+          <ol class="list-decimal list-inside space-y-1">
+            <li>Print the address and value of a variable</li>
+            <li>Compare two variable addresses</li>
+            <li>Change value to 10× using reference</li>
+            <li>Function to print sum & average using pointers</li>
+            <li>Use pointer-to-pointer to print variable value</li>
+            <li>Try problem 3 using call-by-value and verify result</li>
+          </ol>
+        </section>
+         <!-- nav-buttons -->
+       <div class="w-full flex justify-between mt-3">
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="/operators&loops/index.html">&larr;Previous</a></button>
+
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="/arrays/index.html">Next&Rarr;</a></button>
+       </div>
+    <!-- footer -->
+   <div  class="h-16 border-4 bg-neutral-900 text-white text-center py-4 mt-5">
+    <footer >
+      C Tutorial @2025|Gowthamraj Network
+    </footer>
+      </main>
+    </div>
+  </div>
+  <script>
+  function toggleNav()
+  {
+    document.getElementById("topnav").classList.toggle('hidden');
+  }
+  </script>
+</body>
+</html>

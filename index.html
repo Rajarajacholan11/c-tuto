@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C Programming Tutorial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <div>
+    <div>
+      <header class=" text-white  flex justify-between p-5 bg-[#4caf50] h-16">
+        <div class="font-extrabold text-base md:text-base lg:text-xl">Gowthamraj Network</div>
+        <ul class="flex gap-4">
+          <li class="border-b border-b-white hidden md:block">Introduction</li>
+          <li class="hidden md:block">Variables&conditionals</li>
+          <li class="hidden  md:block">Operators&Loop</li>
+          <li class="hidden  md:block">Functions</li>
+          <li class="hidden  md:block">Arrays</li>
+          <li class="hidden  md:block">Project</li>
+          <li class="block md:hidden"><i class="fa-solid fa-bars" onclick="toggleNav()"></i></li>
+        </ul>
+      </header>
+    </div>
+  <div class="flex flex-col min-h-screen h-[100vh] overflow-y-auto  md:flex-row " >
+    <!-- Sidebar -->
+    <aside class="hidden w-full text-center  text-black-400 p-6 space-y-4 md:w-64" id="topnav">
+      <h2 class="text-2xl font-bold mb-4 text-[#4caf50]">C Tutorial</h2>
+      <nav class="space-y-2 ">
+        <a href="#intro" class="block hover:underline active:bg-[#4caf50]">What is Programming?</a>
+        <a href="#c-lang" class="block hover:underline">What is C?</a>
+        <a href="#variables" class="block hover:underline">Variables</a>
+        <a href="#constants" class="block hover:underline">Constants</a>
+        <a href="#keywords" class="block hover:underline">Keywords</a>
+        <a href="#first-program" class="block hover:underline">First C Program</a>
+        <a href="#structure" class="block hover:underline">Basic Structure</a>
+        <a href="#comments" class="block hover:underline">Comments</a>
+        <a href="#compilation" class="block hover:underline">Compilation</a>
+        <a href="#library" class="block hover:underline">Library Functions</a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+      <section id="intro">
+        <h1 class="text-2xl font-bold mb-2 text-[#4caf50]">What is Programming?</h1>
+        <p class="mb-4">Computer programming is a medium for us to communicate with computers. Just like we use Hindi or English to communicate with each other, programming is a way to deliver our instructions to the computer.</p>
+      </section>
+
+      <section id="c-lang">
+        <h2 class="text-xl font-semibold mt-6 mb-2 text-[#4caf50]">What is C?</h2>
+        <p>C is a programming language developed by Dennis Ritchie at AT&T Bell Labs, USA in 1972. It is one of the oldest and finest programming languages.</p>
+        <h3 class="font-semibold mt-4">Uses of C:</h3>
+        <ul class="list-disc list-inside">
+          <li>Major parts of Windows, Linux, and other operating systems are written in C.</li>
+          <li>Used to write driver programs for devices like tablets, printers, etc.</li>
+          <li>Used to program embedded systems (e.g., microwaves, cameras).</li>
+          <li>Used in game development where performance is critical.</li>
+        </ul>
+      </section>
+
+      <section id="variables">
+        <h2 class="text-xl font-semibold mt-6 mb-2 text-[#4caf50]">Variables</h2>
+        <p>A variable is a container which stores a value.</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>a = 3;
+b = 4.7;
+c = 'A';</code></pre>
+        <h3 class="font-semibold mt-4 text-[#4caf50]">Rules for Naming Variables:</h3>
+        <ul class="list-decimal list-inside">
+          <li>First character must be an alphabet or underscore (_)</li>
+          <li>No commas or blanks allowed</li>
+          <li>No special symbols allowed (except _)</li>
+          <li>Case sensitive</li>
+        </ul>
+      </section>
+
+      <section id="constants">
+        <h2 class="text-xl font-semibold mt-6 mb-2 text-[#4caf50]">Constants</h2>
+        <p>A constant is an entity whose value doesn’t change. A variable, in contrast, can be changed during execution.</p>
+        <h3 class="font-semibold mt-4">Types of Constants:</h3>
+        <ul class="list-disc list-inside">
+          <li>Integer Constant: -1, 6, 7, 9</li>
+          <li>Real Constant: -322.1, 2.5, 7.0</li>
+          <li>Character Constant: 'a', '$', '@' (enclosed in single quotes)</li>
+        </ul>
+      </section>
+
+      <section id="keywords">
+        <h2 class="text-xl font-semibold mt-6 mb-2 text-[#4caf50]">Keywords in C</h2>
+        <p>Keywords are reserved words whose meaning is already known to the compiler. There are 32 keywords in C:</p>
+        <div class="grid grid-cols-4 gap-2 mt-2 text-sm">
+          <span>auto</span><span>double</span><span>int</span><span>struct</span>
+          <span>break</span><span>long</span><span>else</span><span>switch</span>
+          <span>case</span><span>return</span><span>enum</span><span>extern</span>
+          <span>typedef</span><span>char</span><span>register</span><span>union</span>
+          <span>const</span><span>short</span><span>float</span><span>unsigned</span>
+          <span>continue</span><span>signed</span><span>for</span><span>void</span>
+          <span>default</span><span>sizeof</span><span>goto</span><span>volatile</span>
+          <span>static</span><span>if</span><span>while</span>
+        </div>
+      </section>
+
+      <section id="first-program">
+        <h2 class="text-xl font-semibold mt-6 mb-2 text-[#4caf50]">Our First C Program</h2>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, I am learning C with Harry");
+    return 0;
+}</code></pre>
+        <p class="text-sm text-gray-500 mt-1">File: first.c</p>
+      </section>
+
+      <section id="structure">
+        <h2 class="text-xl font-semibold mt-6 mb-2 text-[#4caf50]">Basic Structure of a C Program</h2>
+        <ul class="list-disc list-inside">
+          <li>Every program starts from the <code>main()</code> function.</li>
+          <li>Statements end with a semicolon.</li>
+          <li>C is case-sensitive.</li>
+          <li>Instructions are executed in the written order.</li>
+        </ul>
+      </section>
+
+      <section id="comments">
+        <h2 class="text-xl font-semibold mt-6 mb-2 text-[#4caf50]">Comments</h2>
+        <p>Used to clarify parts of the program. Ignored during execution.</p>
+        <ul class="list-disc list-inside">
+          <li>Single-line comment: <code>// This is a comment</code></li>
+          <li>Multi-line comment: <code>/* This is a multi-line comment */</code></li>
+        </ul>
+      </section>
+
+      <section id="compilation">
+        <h2 class="text-xl font-semibold mt-6 mb-2 text-[#4caf50]">Compilation and Execution</h2>
+        <p>A compiler converts human-readable C code into machine code (.exe). It performs basic checks and builds an executable program.</p>
+      </section>
+
+      <section id="library">
+        <h2 class="text-xl font-semibold mt-6 mb-2 text-[#4caf50]">Library Functions</h2>
+        <p>C provides built-in functions to perform tasks. Example:</p>
+        <pre class="bg-gray-100 p-4 rounded text-sm"><code>printf("This is %d", i);</code></pre>
+        <p><code>%d</code> → Integer, <code>%f</code> → Real numbers, <code>%c</code> → Characters</p>
+      </section>
+      <!-- nav-buttons -->
+       <div class="w-full flex justify-end">
+        <button class="border-2 bg-[#4caf50] text-white p-2 rounded-lg"><a href="/variables&conditionals/index.html">Next&Rarr;</a></button>
+       </div>
+
+       <!-- footer -->
+  <div  class="h-16 border-4 bg-neutral-900 text-white text-center py-4 mt-5">
+    <footer >
+      C Tutorial @2025|Gowthamraj Network
+    </footer>
+  </div>
+    </main>
+ 
+  </div>
+
+</div>
+<script>
+  function toggleNav()
+  {
+    document.getElementById("topnav").classList.toggle('hidden');
+  }
+</script>
+</body>
+</html>
